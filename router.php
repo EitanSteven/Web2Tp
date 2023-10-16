@@ -3,7 +3,6 @@ require_once "./app/controller/autoresController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-
 $action = 'home';   //Definimos el action default.
 
 // Tomamos el action dado en la URL.
@@ -21,9 +20,7 @@ switch ($parms[0]) {
         break;
 
     default:
-        # code...
+        echo "error";
     break;
 }
-
-
 ?>
