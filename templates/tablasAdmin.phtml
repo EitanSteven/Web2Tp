@@ -1,0 +1,70 @@
+    <div class="container my-3">
+        <div class="d-grid gap-2">
+            <!-- TABLA AUTORES -->
+            <table class="table table-striped table-dark">
+                <thead>
+                    <th>#ID</th>
+                    <th>NOMBRE</th>
+                    <th>NACIONALIDAD</th>
+                    <th>BIOGRAFIA</th>
+                    <th>ESTADO</th>
+                    <th>OPCIONES</th>
+                </thead>
+                <tbody>
+                    
+                    <?php foreach ($autores as $autor) { ?>
+                        <tr>
+                            <td><?= $autor->ID_Autor ?></td>
+                            <td><?= $autor->Nombre_Autor ?></td>
+                            <td><?= $autor->Nacionalidad ?></td>
+                            <td><?= $autor->Biografia ?></td>
+                            <td><?= ($autor->Estado > 0) ? 'Si' : 'No' ?></td>
+                            <td>
+                                <button class="btn btn-secondary my-1"><a href="admin/estado/<?= $autor->ID_Autor ?>" class="btn-link">Cambiar Estado</a></button>
+                                <button class="btn btn-danger my-1"><a href="admin/eliminarAutor/<?= $autor->ID_Autor ?>" class="btn-link">Eliminar</a></button>
+                                <button class="btn btn-warning my-1"><a href="admin/nuevoLibro/<?= $autor->ID_Autor ?>" class="btn-link">Nuevo Libro</a></button>
+                            </td>
+                        </tr>
+                    <?php } ?>   
+                </tbody>
+            </table>
+            <button class="btn btn-primary"><a href="#" class="btn-link">Nuevo Autor</a></button>
+        </div> 
+
+        
+        <div class="my-3">
+            <!-- TABLA LIBROS -->
+            <table class="table table-striped table-dark">
+                <thead>
+                    <th>#ISBN</th>
+                    <th>Titulo</th>
+                    <th>Autor/es</th>
+                    <th>Genero</th>
+                    <th>STOCK</th>
+                    <th>OPCIONES</th>
+                </thead>
+                <tbody>
+                    <?php foreach ($libros as $libro) { 
+                        foreach ($autores as $autor) {
+                            if ($libro->ID_Autor == $autor->ID_Autor) {
+                                $autorLibro = $autor->Nombre_Autor;
+                            }
+                        }
+                        ?>
+                        <tr>
+                            <td><?= $libro->ISBN ?></td>
+                            <td><?= $libro->Titulo ?></td>
+                            <td><?= $autorLibro ?></td>
+                            <th><?= $libro->Genero ?></th>
+                            <td><?= ($libro->Stock > 0) ? 'Si' : 'No' ?></td>
+                            
+                            <td>
+                                <button class="btn btn-secondary my-1"><a href="admin/stock/<?= $libro->ISBN ?>" class="btn-link">Stock</a></button>
+                                <button class="btn btn-danger my-1"><a href="admin/eliminarLibro/<?= $libro->ISBN ?>" class="btn-link">Eliminar</a></button>
+                            </td>
+                        </tr>
+                    <?php } ?>    
+                </tbody>
+            </table>
+        </div>
+   </div>

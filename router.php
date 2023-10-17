@@ -1,6 +1,7 @@
 <?php   
 require_once "app/controller/autoresController.php";
 require_once "app/controller/librosController.php";
+require_once "app/controller/adminController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -26,7 +27,8 @@ switch ($params[0]) {
         $controllerLibro->printHomeTable();
         break;
     case 'admin':
-        #code
+        $controller = new adminController();
+        $controller->printAdminTables();
         break;
     default:
         echo "error";
