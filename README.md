@@ -4,8 +4,11 @@
 - **Gil Eitan Steven** - EitanSteven2002@hotmail.com
 - **Palavecino, Mariana Ayelen** – marianapalavecino5@gmail.com
 
-## Problemas:
-- Error al manejar parametros, no nos toma valido el params[1], en el router, pero si lo hacemos con params[0] funciona a medias, nos muestra los datos del primer libro, independientemente del id que le pasemos.
+## Observacion de los Alumnos de este TP:
+- Salto muy abrupto del primer tp a este.
+- Funcionalidades conseguidas: Imprimir tablas y filtrar por ID.
+- Nos atrasamos mucho al manejar las variables por post.
+- **Errores:** Al manejar variables por get, en /admin (login), quisimos hacer un toggle de estado de los autores para indicar si estaban vivos o muertos, pero no se nos actualiza.
 
 ## Temática: Librería y Autores
 

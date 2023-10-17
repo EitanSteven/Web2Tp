@@ -30,6 +30,10 @@ switch ($params[0]) {
         $controller = new adminController();
         $controller->printAdminTables();
         break;
+    case 'estado':
+        $controller = new adminController();
+        $controller->switchState($params[1]);
+        break;
     default:
         echo "error";
     break;

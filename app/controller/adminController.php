@@ -18,4 +18,8 @@ class adminController {
         $libros = $this->modelLibros->getLibros();
         $this->view->renderTables($autores, $libros);
     }
+    public function switchState($id) {
+        $this->modelAutores->cambiaEstado($id);
+        header("Location:" . BASE_URL . "admin");
+    }
 }

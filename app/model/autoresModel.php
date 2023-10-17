@@ -19,4 +19,19 @@ class autoresModel {
         $query->execute([$id]);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+    public function cambiaEstado($id) {
+        // Obtén el estado actual del autor
+        $originStateQuery = $this->db->prepare("SELECT Estado FROM autores WHERE ID_Autor = ?");
+        $originStateQuery->execute([$id]);
+    
+        if ($originStateQuery) {
+            $originState = $originStateQuery->fetchColumn(); // Obtiene el valor del estado
+        }
+
+        $newState = !$originState;
+
+        $updateQuery = $this->db->prepare("UPDATE autores SET Estado = ? WHERE ID_Autor = ?");
+        $updateQuery->execute([$newState, $id]);
+    }
+    
 }
