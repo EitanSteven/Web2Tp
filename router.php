@@ -1,5 +1,6 @@
 <?php   
-require_once "./app/controller/autoresController.php";
+require_once "app/controller/autoresController.php";
+require_once "app/controller/librosController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -13,12 +14,14 @@ if (!empty( $_GET["action"])) {
 // Parseas la accion
 $params = explode('/', $action);
 
-switch ($parms[0]) {
+switch ($params[0]) {
     case 'home':
         $controller = new autoresController();
         $controller->printHome();
         break;
-
+    case 'showHomeTable':
+        $controllerLibro = new librosController();
+        $controllerLibro->printHomeTable($params[1]);
     default:
         echo "error";
     break;

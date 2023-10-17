@@ -5,8 +5,7 @@
 - **Palavecino, Mariana Ayelen** – marianapalavecino5@gmail.com
 
 ## Problemas:
-- Nos esta costando mucho crear la pagina usando el MVC, ¿De donde empezar, desde el router, desde el controlador, o desde la vista o el modelo?
-- Ni si quiera pudimos imprimir el home. 😭
+- No nos sale el manejo de parametros enviados por Get, en el home, se deberia poder seleccionar un autor, cuyo ID es enviado para imprimir los libros de ese autor, pero no se imprime la tabla. 
 
 ## Temática: Librería y Autores
 

@@ -1,10 +1,18 @@
 
-<form action="home" class="formulario" method="GET">
-    <select class="form-select my-3 bg-dark wtxt" aria-label="Default select example">
+<div class="home-header">
+    <img src="css/imgs/Edithorial-logo.png" class="imagenLogo" alt="Edithroail_logo">
+    <h1 class="text-center">Edithorial</h1>
+    <p class="text-center">Puedes buscar los libros en stock de los autores con los que trabajamos.</p>
+</div>
+
+<form action="showHomeTable" class="formulario" method="GET">
+    <select name="autor" class="form-select my-3 bg-dark wtxt" aria-label="Default select example">
         <option selected>Elige el Autor y buscaremos sus libros...</option>
         <?php foreach ($autores as $autor) { ?>
-            <option value="<?= $autor->ID_Autor ?>"><?= $autor->NombreAutor ?></option>
-        <?php } ?>
+
+            <option value="<?= $autor->ID_Autor ?>"><?= $autor->Nombre_Autor ?></option>
+        
+            <?php } ?>
     </select>
     <button type="submit" class="btn btn-secondary">Buscar</button>
 </form>

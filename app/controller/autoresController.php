@@ -1,7 +1,7 @@
 <?php 
 
-require_once "./view/autoresView.php";
-require_once "./model/autoresModel.php";
+require_once "app/view/autoresView.php";
+require_once "app/model/autoresModel.php";
 
 class autoresController {
     private $view, $modelLibros, $modelAutores;
