@@ -23,7 +23,11 @@ switch ($params[0]) {
         $controllerLibro = new librosController();
         //var_dump($params[1]);
         //die();
-        $controllerLibro->printHomeTable($params[0]);
+        $controllerLibro->printHomeTable();
+        break;
+    case 'admin':
+        #code
+        break;
     default:
         echo "error";
     break;

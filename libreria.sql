@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2023 a las 23:58:59
+-- Tiempo de generación: 17-10-2023 a las 15:30:42
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,24 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `autores` (
   `ID_Autor` int(11) NOT NULL,
-  `Nombre_Autor` varchar(100) NOT NULL,
+  `Nombre_Autor` varchar(250) NOT NULL,
   `Nacionalidad` varchar(100) NOT NULL,
   `Biografia` text NOT NULL,
   `Estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `editorial`
+-- Volcado de datos para la tabla `autores`
 --
 
-CREATE TABLE `editorial` (
-  `ID_Editorial` int(11) NOT NULL,
-  `Nombre_Editorial` int(11) NOT NULL,
-  `Direccion` varchar(100) NOT NULL,
-  `Email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `autores` (`ID_Autor`, `Nombre_Autor`, `Nacionalidad`, `Biografia`, `Estado`) VALUES
+(0, 'J. K. Rowling', 'Britanica', 'Joanne Rowling1​ (Yate, 31 de julio de 1965), quien escribe bajo los seudónimos de J. K. Rowling​ y Robert Galbraith, es una escritora, productora de cine y guionista británica, conocida por ser la autora de la serie de libros Harry Potter, que han superado los quinientos millones de ejemplares vendidos.', 1),
+(1, 'Brandon Sanderson', 'Estado Unidense', 'Brandon Sanderson es un renombrado autor de novelas de fantasía y ciencia ficción, conocido por su estilo prolífico y sus obras épicas. Nacido en 1975 en Nebraska, es famoso por su contribución a la serie \"La Rueda del Tiempo\" de Robert Jordan y por sus propias series, como \"El Archivo de las Tormentas\".', 1),
+(2, 'Pablo Neruda', 'Chileno', 'Pablo Neruda (1904 - 1973) fue uno de los poetas más importantes del siglo XX. A continuación, se realiza un breve recorrido por algunos de los poemas más populares de su producción, desde sus inicios (1923) hasta sus últimas publicaciones (1970).', 0);
 
 -- --------------------------------------------------------
 
@@ -56,11 +52,23 @@ CREATE TABLE `editorial` (
 
 CREATE TABLE `libros` (
   `ISBN` int(11) NOT NULL,
-  `Titulo` varchar(100) NOT NULL,
+  `Titulo` varchar(250) NOT NULL,
   `Genero` varchar(100) NOT NULL,
   `ID_Autor` int(11) NOT NULL,
-  `ID_Editorial` int(11) NOT NULL
+  `Stock` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `libros`
+--
+
+INSERT INTO `libros` (`ISBN`, `Titulo`, `Genero`, `ID_Autor`, `Stock`) VALUES
+(0, 'Harry Potter and the philosopher\'s stone', 'Fantasia.', 0, 1),
+(1, 'The christmas pig', 'Fantasia', 0, 0),
+(2, 'El camino de los reyes', 'Alta Fantasia', 1, 1),
+(3, 'Juramentada', 'Alta Fantasia', 1, 1),
+(4, 'Cien sonetos de amor', 'Poesia', 2, 1),
+(5, 'Veinte poemas de amor y una canción desesperada', 'Poesia', 2, 0);
 
 --
 -- Índices para tablas volcadas
@@ -73,18 +81,11 @@ ALTER TABLE `autores`
   ADD PRIMARY KEY (`ID_Autor`);
 
 --
--- Indices de la tabla `editorial`
---
-ALTER TABLE `editorial`
-  ADD PRIMARY KEY (`ID_Editorial`);
-
---
 -- Indices de la tabla `libros`
 --
 ALTER TABLE `libros`
   ADD PRIMARY KEY (`ISBN`),
-  ADD KEY `ID_Autor` (`ID_Autor`),
-  ADD KEY `ID_Editorial` (`ID_Editorial`);
+  ADD KEY `ID_Autor` (`ID_Autor`);
 
 --
 -- Restricciones para tablas volcadas
@@ -94,8 +95,7 @@ ALTER TABLE `libros`
 -- Filtros para la tabla `libros`
 --
 ALTER TABLE `libros`
-  ADD CONSTRAINT `ID_Autor` FOREIGN KEY (`ID_Autor`) REFERENCES `autores` (`ID_Autor`),
-  ADD CONSTRAINT `ID_Editorial` FOREIGN KEY (`ID_Editorial`) REFERENCES `editorial` (`ID_Editorial`);
+  ADD CONSTRAINT `ID_Autor` FOREIGN KEY (`ID_Autor`) REFERENCES `autores` (`ID_Autor`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -15,7 +15,7 @@
                     <td><?= $autorNombre[0]->Nombre_Autor ?></td>
                     <td><?= $libro->Titulo ?></td>
                     <th><?= $libro->Genero ?></th>
-                    <th><?= $libro->Stock ?></th>
+                    <th><?= ($libro->Stock > 0) ? 'Si' : 'No' ?></th>
                 </tr>
             <?php } ?>
         </tbody>

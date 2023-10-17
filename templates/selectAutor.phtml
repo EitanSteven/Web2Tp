@@ -5,8 +5,8 @@
     <p class="text-center">Puedes buscar los libros en stock de los autores con los que trabajamos.</p>
 </div>
 
-<form action="showHomeTable" class="formulario" method="GET">
-    <select name="name" class="form-select my-3 bg-dark wtxt" aria-label="Default select example">
+<form action="showHomeTable" class="formulario" method="POST">
+    <select name="autor" class="form-select my-3 bg-dark wtxt" aria-label="Default select example">
         <option selected>Elige el Autor y buscaremos sus libros...</option>
         <?php foreach ($autores as $autor) { ?>
 
