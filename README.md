@@ -5,7 +5,7 @@
 - **Palavecino, Mariana Ayelen** – marianapalavecino5@gmail.com
 
 ## Problemas:
-- No nos sale el manejo de parametros enviados por Get, en el home, se deberia poder seleccionar un autor, cuyo ID es enviado para imprimir los libros de ese autor, pero no se imprime la tabla. 
+- Error al manejar parametros, no nos toma valido el params[1], en el router, pero si lo hacemos con params[0] funciona a medias, nos muestra los datos del primer libro, independientemente del id que le pasemos.
 
 ## Temática: Librería y Autores
 

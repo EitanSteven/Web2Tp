@@ -21,7 +21,9 @@ switch ($params[0]) {
         break;
     case 'showHomeTable':
         $controllerLibro = new librosController();
-        $controllerLibro->printHomeTable($params[1]);
+        //var_dump($params[1]);
+        //die();
+        $controllerLibro->printHomeTable($params[0]);
     default:
         echo "error";
     break;

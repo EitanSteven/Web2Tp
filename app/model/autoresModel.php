@@ -14,4 +14,9 @@ class autoresModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+    public function getNombre($id) {
+        $query = $this->db->prepare("SELECT Nombre_Autor from autores WHERE ID_Autor = ?");
+        $query->execute([$id]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
 }
