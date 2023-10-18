@@ -19,19 +19,21 @@ class autoresModel {
         $query->execute([$id]);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
-    public function cambiaEstado($id) {
+    public function getEstado($id) {
         // Obtén el estado actual del autor
-        $originStateQuery = $this->db->prepare("SELECT Estado FROM autores WHERE ID_Autor = ?");
-        $originStateQuery->execute([$id]);
-    
-        if ($originStateQuery) {
-            $originState = $originStateQuery->fetchColumn(); // Obtiene el valor del estado
-        }
-
+        $query = $this->db->prepare("SELECT Estado FROM autores WHERE ID_Autor = ?");
+        $query->execute([$id]);
+        return $query->fetchColumn();
+    }
+    public function updateState($originState, $id) {
         $newState = !$originState;
 
-        $updateQuery = $this->db->prepare("UPDATE autores SET Estado = ? WHERE ID_Autor = ?");
-        $updateQuery->execute([$newState, $id]);
+        $query = $this->db->prepare("UPDATE autores SET Estado = ? WHERE ID_Autor = ?");
+        $query->execute([$newState, $id]);
+    }
+    public function deleteAutor($id) {
+        $query = $this->db->prepare('DELETE FROM autores WHERE ID_Autor = ?');
+        $query->execute([$id]);
     }
     
 }

@@ -20,9 +20,9 @@
                             <td><?= $autor->Biografia ?></td>
                             <td><?= ($autor->Estado > 0) ? 'Si' : 'No' ?></td>
                             <td>
-                                <button class="btn btn-secondary my-1"><a href="admin/estado/<?= $autor->ID_Autor ?>" class="btn-link">Cambiar Estado</a></button>
-                                <button class="btn btn-danger my-1"><a href="admin/eliminarAutor/<?= $autor->ID_Autor ?>" class="btn-link">Eliminar</a></button>
-                                <button class="btn btn-warning my-1"><a href="admin/nuevoLibro/<?= $autor->ID_Autor ?>" class="btn-link">Nuevo Libro</a></button>
+                                <button class="btn btn-secondary my-1"><a href="estado/<?= $autor->ID_Autor ?>" class="btn-link">Cambiar Estado</a></button>
+                                <button class="btn btn-danger my-1"><a href="eliminarAutor/<?= $autor->ID_Autor ?>" class="btn-link">Eliminar</a></button>
+                                <button class="btn btn-warning my-1"><a href="nuevoLibro/<?= $autor->ID_Autor ?>" class="btn-link">Nuevo Libro</a></button>
                             </td>
                         </tr>
                     <?php } ?>   
@@ -59,8 +59,8 @@
                             <td><?= ($libro->Stock > 0) ? 'Si' : 'No' ?></td>
                             
                             <td>
-                                <button class="btn btn-secondary my-1"><a href="admin/stock/<?= $libro->ISBN ?>" class="btn-link">Stock</a></button>
-                                <button class="btn btn-danger my-1"><a href="admin/eliminarLibro/<?= $libro->ISBN ?>" class="btn-link">Eliminar</a></button>
+                                <button class="btn btn-secondary my-1"><a href="stock/<?= $libro->ISBN ?>" class="btn-link">Stock</a></button>
+                                <button class="btn btn-danger my-1"><a href="eliminarLibro/<?= $libro->ISBN ?>" class="btn-link">Eliminar</a></button>
                             </td>
                         </tr>
                     <?php } ?>    

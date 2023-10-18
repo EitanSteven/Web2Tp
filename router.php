@@ -34,6 +34,15 @@ switch ($params[0]) {
         $controller = new adminController();
         $controller->switchState($params[1]);
         break;
+    case 'eliminarLibro':
+        $controller = new adminController();
+        $controller->deleteLibro($params[1]);
+    case 'eliminarAutor':
+        $controller = new adminController();
+        $controller->eliminarAutor($params[1]);
+    case 'stock':
+        $controller = new adminController();
+        $controller->switchStock($params[1]);
     default:
         echo "error";
     break;

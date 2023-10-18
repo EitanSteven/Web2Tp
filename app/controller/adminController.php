@@ -19,7 +19,23 @@ class adminController {
         $this->view->renderTables($autores, $libros);
     }
     public function switchState($id) {
-        $this->modelAutores->cambiaEstado($id);
-        header("Location:" . BASE_URL . "admin");
+        $originState = $this->modelAutores->getEstado($id);
+        $this->modelAutores->updateState($originState ,$id);
+        header("Location:" . BASE_URL . 'admin');
     }
+    public function switchStock($id) {
+        $originState = $this->modelLibros->getStock($id);
+        $this->modelLibros->updateStock($originState ,$id);
+        header("Location:" . BASE_URL . 'admin');
+    }
+    public function deleteLibro($id) {
+        $this->modelLibros->deleteLibro($id);
+        header("Location:" . BASE_URL . 'admin');
+    }
+    public function eliminarAutor($id) {
+        $this->modelLibros->deleteLibroByAutor($id);
+        $this->modelAutores->deleteAutor($id);
+        header("Location:" . BASE_URL . 'admin');
+    }
+
 }
