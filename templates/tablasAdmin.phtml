@@ -18,7 +18,7 @@
                             <td><?= $autor->Nombre_Autor ?></td>
                             <td><?= $autor->Nacionalidad ?></td>
                             <td><?= $autor->Biografia ?></td>
-                            <td><?= ($autor->Estado > 0) ? 'Si' : 'No' ?></td>
+                            <td><?= ($autor->Estado > 0) ? 'Vivo' : 'Muerto' ?></td>
                             <td>
                                 <button class="btn btn-secondary my-1"><a href="estado/<?= $autor->ID_Autor ?>" class="btn-link">Cambiar Estado</a></button>
                                 <button class="btn btn-danger my-1"><a href="eliminarAutor/<?= $autor->ID_Autor ?>" class="btn-link">Eliminar</a></button>
@@ -28,7 +28,7 @@
                     <?php } ?>   
                 </tbody>
             </table>
-            <button class="btn btn-primary"><a href="#" class="btn-link">Nuevo Autor</a></button>
+            <button class="btn btn-primary"><a href="cargar_autor" class="btn-link">Nuevo Autor</a></button>
         </div> 
 
         

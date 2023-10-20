@@ -35,5 +35,20 @@ class autoresModel {
         $query = $this->db->prepare('DELETE FROM autores WHERE ID_Autor = ?');
         $query->execute([$id]);
     }
+    public function getLastId() {
+        $autores = $this->getAutores();
+        $id = 0;
+        foreach ($autores as $autor) {
+            $id = $autor->ID_Autor;
+        }
+        return $id;
+    }
+    public function addAutor($autorName, $autorNacionalidad, $estado, $autorBio) {
+        $indice = $this->getLastId();
+        $indice++;
+        
+        $query = $this->db->prepare('INSERT INTO autores (ID_Autor, Nombre_Autor, Nacionalidad, Biografia, Estado) VALUES (?, ?, ?, ?, ?)');
+        $query->execute([$indice, $autorName, $autorNacionalidad, $autorBio, $estado]);
+    }
     
 }

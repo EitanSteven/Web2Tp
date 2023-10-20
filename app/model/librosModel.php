@@ -40,5 +40,20 @@ class librosModel {
         $query = $this->db->prepare('DELETE FROM libros WHERE ID_Autor = ?');
         $query->execute([$autor]);
     }
+    public function getLastId() {
+        $libros = $this->getLibros();
+        $id = 0;
+        foreach ($libros as $libro) {
+            $id = $libro->ISBN;
+        }
+        return $id;
+    }
+    public function addLibro($ID_Autor, $tituloLibro, $generoLibro, $Stock) {
+        $indice = $this->getLastId();
+        $indice++;
+        $query = $this->db->prepare('INSERT INTO libros (ISBN, Titulo, Genero, ID_Autor, Stock) VALUES (?, ?, ?, ?, ?)');
+        $query->execute([$indice, $tituloLibro, $generoLibro, $ID_Autor, $Stock]);
+        
+    }
     
 }

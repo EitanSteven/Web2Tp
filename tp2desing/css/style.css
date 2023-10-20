@@ -62,3 +62,15 @@ body {
 .btn-link {
   text-decoration: none;
 }
+
+.no-resizable {
+  resize: none;
+}
+
+.br {
+  border-radius: 25px;
+}
+
+.admin-forms {
+  max-width: 750px;
+}

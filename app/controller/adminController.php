@@ -37,5 +37,38 @@ class adminController {
         $this->modelAutores->deleteAutor($id);
         header("Location:" . BASE_URL . 'admin');
     }
+    public function addAutorForm() {
+        $this->view->renderCargarAutor();
+    }
+    public function addAutor() {
+        $autorName = $_POST['autorName'];
+        $autorNacionalidad = $_POST['autorNacionalidad'];
+        $autorBio = $_POST['autorBiografia'];
+
+       if (isset($_POST['estado'])) {
+        $estado = true;
+       } else {
+        $estado = false;
+       }
+
+        $this->modelAutores->addAutor($autorName, $autorNacionalidad, $estado, $autorBio);
+        header("Location:" . BASE_URL . 'admin');
+    }
+    public function addLibroForm($id){
+        $this->view->renderCargarLibro($id);
+    }
+    public function addLibro($ID_Autor) {
+        $tituloLibro = $_POST['tituloLibro'];
+        $generoLibro = $_POST['generoLibro'];
+
+        if (isset($_POST['stock'])) {
+            $stock = true;
+           } else {
+            $stock = false;
+           }
+
+        $this->modelLibros->addLibro($ID_Autor, $tituloLibro, $generoLibro, $stock);
+        header("Location:" . BASE_URL . 'admin');
+    }
 
 }

@@ -1,0 +1,23 @@
+    <!-- CARGA LIBRO FORM -->
+
+<div class="container bg-dark my-3 py-3 wtxt br admin-forms px-3">
+    <form action="insert_libro/<?= $id ?>" method="POST">
+        <div class="mb-3">
+            <label for="tituloLibro" class="form-label">Titulo del Libro</label>
+            <input type="text" name="tituloLibro" class="form-control" id="tituloLibro" placeholder="Ingrese titulo completo...">
+        </div>
+        <div class="mb-3">
+            <label for="generoLibro" class="form-label">Genero</label>
+            <input type="text" name="generoLibro" class="form-control" id="generoLibro" placeholder="Ingrese genero del libro...">
+        </div>
+       
+        <div class="form-check my-3">
+            <input class="form-check-input" type="checkbox" name="stock" value="true" id="stock">
+            <label class="form-check-label" for="stock">Hay Stock.</label>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">CARGAR LIBRO</button>
+        </div>
+    </form>
+</div>

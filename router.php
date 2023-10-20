@@ -22,8 +22,6 @@ switch ($params[0]) {
         break;
     case 'showHomeTable':
         $controllerLibro = new librosController();
-        //var_dump($params[1]);
-        //die();
         $controllerLibro->printHomeTable();
         break;
     case 'admin':
@@ -37,12 +35,31 @@ switch ($params[0]) {
     case 'eliminarLibro':
         $controller = new adminController();
         $controller->deleteLibro($params[1]);
+        break;
     case 'eliminarAutor':
         $controller = new adminController();
         $controller->eliminarAutor($params[1]);
+        break;
     case 'stock':
         $controller = new adminController();
         $controller->switchStock($params[1]);
+        break;
+    case 'cargar_autor':
+        $controller = new adminController();
+        $controller->addAutorForm();
+        break;
+    case 'insertar_autor':
+        $controller = new adminController();
+        $controller->addAutor();
+        break;
+    case 'nuevoLibro':
+        $controller = new adminController();
+        $controller->addLibroForm($params[1]);
+        break;
+    case 'insert_libro':
+        $controller = new adminController();
+        $controller->addLibro($params[1]);
+        break;
     default:
         echo "error";
     break;

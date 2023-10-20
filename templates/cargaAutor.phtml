@@ -1,0 +1,27 @@
+<!-- CARGA AUTOR FORM -->
+
+<div class="container bg-dark my-3 py-3 wtxt br admin-forms px-3">
+    <form action="insertar_autor" method="POST">
+        <div class="mb-3">
+            <label for="nombreAutor" class="form-label">Nombre de Autor</label>
+            <input type="text" name="autorName" class="form-control" id="nombreAutor" placeholder="Ingrese nombre completo..." required>
+        </div>
+        <div class="mb-3">
+            <label for="nacionAutor" class="form-label">Nacionalidad</label>
+            <input type="text" name="autorNacionalidad" class="form-control" id="nacionAutor" placeholder="Ingrese nacionalidad del autor..." required>
+        </div>
+
+        <div class="form-check my-3">
+            <input class="form-check-input" type="checkbox" name="estado" value="true" id="estado">
+            <label class="form-check-label" for="estado">Vive actualmente</label>
+        </div>
+
+        <div class="mb-3">
+            <label for="autorBio" class="form-label">Biografia</label>
+            <textarea class="form-control no-resizable" name="autorBiografia" id="autorBio" rows="3" placeholder="Ingrese una breve biografia del autor..." required></textarea>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">GUARDAR</button>
+        </div>
+    </form>
+</div>
