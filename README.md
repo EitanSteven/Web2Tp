@@ -10,6 +10,7 @@
 
 ## Nota:
 - Este commit fue realizado el 20/10 a las 8am. Subiendo las funcionalidades de carga de libros y autores que eran las que faltaban en el comit entregado el dia de la fecha limite. 
+- Segundo commit realizado el 22/10 a las 00:20hs, subiendo la funcionalidad de login y seguridad.
 
 ## Funcionalidades conseguidas:
 - **Imprimir/Seleccionar libros por categoria (autor/id)**: Pagina de **home** donde se puede seleccionar un autor, y se imprimira una tabla con sus libros.
@@ -18,10 +19,11 @@
 - **Eliminar libros por ID** en la seccion login (/admin).
 - **Eliminar Autores y todos sus libros** en la seccion login (/admin).
 - **Cargar Autores y Libros** en la seccion login (/admin).
+- **Login y Seguridad**.
 
 ## Funcionalidades Faltantes y Preguntas:
 - **Create de ambas tablas**: Respecto a esto tenemos una consulta, al momento de asignar la llave foranea entre las tablas de la base de datos, dejamos de poder insertar libros o autores sin tener que ingresar el Id (PK). Es decir, que debemos ingresarlo de forma manual, por lo que en el codigo luego obtenemos la longitud/cantidad de autores/libros, para obtener el ultimo ID y sumarle +1 para insertar uno nuevo ¿Esto es correcto? ¿Debe funcionar asi o el hecho de que el PK no aumente automaticamente es un error de configuracion?
-- **Seguridad login/autentificacion**: No realizado.
+- Actualizacion: Creemos que es por que en la database, pusimos primary en vez de AI (Auto Increment), creiamos que era lo mismo.
 
 ## Temática: Librería y Autores
 

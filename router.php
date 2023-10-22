@@ -2,6 +2,7 @@
 require_once "app/controller/autoresController.php";
 require_once "app/controller/librosController.php";
 require_once "app/controller/adminController.php";
+require_once "app/controller/loginController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -59,6 +60,18 @@ switch ($params[0]) {
     case 'insert_libro':
         $controller = new adminController();
         $controller->addLibro($params[1]);
+        break;
+    case 'ingresar':
+        $controller = new loginController();
+        $controller->loginView();
+        break;
+    case 'login':
+        $controller = new loginController();
+        $controller->verificarUsuario();
+        break;
+    case 'logout':
+        $controller = new loginController();
+        $controller->logout();
         break;
     default:
         echo "error";
