@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2023 a las 04:51:09
+-- Tiempo de generación: 22-10-2023 a las 05:22:43
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,11 +41,8 @@ CREATE TABLE `autores` (
 
 INSERT INTO `autores` (`ID_Autor`, `Nombre_Autor`, `Nacionalidad`, `Biografia`, `Estado`) VALUES
 (0, 'J. K. Rowling', 'Britanica', 'Joanne Rowling1​ (Yate, 31 de julio de 1965), quien escribe bajo los seudónimos de J. K. Rowling​ y Robert Galbraith, es una escritora, productora de cine y guionista británica, conocida por ser la autora de la serie de libros Harry Potter, que han superado los quinientos millones de ejemplares vendidos.', 1),
-(1, 'Brandon Sanderson', 'Estado Unidense', 'Brandon Sanderson es un renombrado autor de novelas de fantasía y ciencia ficción, conocido por su estilo prolífico y sus obras épicas. Nacido en 1975 en Nebraska, es famoso por su contribución a la serie \"La Rueda del Tiempo\" de Robert Jordan y por sus propias series, como \"El Archivo de las Tormentas\".', 1),
-(2, 'Pablo Neruda', 'Chileno', 'Pablo Neruda (1904 - 1973) fue uno de los poetas más importantes del siglo XX. A continuación, se realiza un breve recorrido por algunos de los poemas más populares de su producción, desde sus inicios (1923) hasta sus últimas publicaciones (1970).', 1),
-(4, 'Autor Prueba 2', 'X', 'X', 1),
-(5, 'Autor Prueba 3', 'X', 'X', 1),
-(6, 'Autor Prueba 4', 'X', 'X', 1);
+(1, 'Brandon Sanderson', 'Estado Unidense', 'Brandon Sanderson es un renombrado autor de novelas de fantasía y ciencia ficción, conocido por su estilo prolífico y sus obras épicas. Nacido en 1975 en Nebraska, es famoso por su contribución a la serie \"La Rueda del Tiempo\" de Robert Jordan y por sus propias series, como \"El Archivo de las Tormentas\".', 0),
+(2, 'Pablo Neruda', 'Chileno', 'Pablo Neruda (1904 - 1973) fue uno de los poetas más importantes del siglo XX. A continuación, se realiza un breve recorrido por algunos de los poemas más populares de su producción, desde sus inicios (1923) hasta sus últimas publicaciones (1970).', 0);
 
 -- --------------------------------------------------------
 
@@ -70,13 +67,28 @@ INSERT INTO `libros` (`ISBN`, `Titulo`, `Genero`, `ID_Autor`, `Stock`) VALUES
 (1, 'The christmas pig', 'Fantasia', 0, 0),
 (2, 'El camino de los reyes', 'Alta Fantasia', 1, 1),
 (3, 'Juramentada', 'Alta Fantasia', 1, 1),
-(4, 'Cien sonetos de amor', 'Poesia', 2, 1),
-(5, 'Veinte poemas de amor y una canción desesperada', 'Poesia', 2, 0),
-(9, 'Libro 4', 'X', 4, 0),
-(10, 'Libro X', 'X', 4, 0),
-(11, 'Libro X', 'X', 4, 0),
-(12, 'Libro X', 'X', 5, 0),
-(13, 'Libro X', 'X', 6, 0);
+(4, 'Cien sonetos de amor', 'Poesia', 2, 0),
+(5, 'Veinte poemas de amor y una canción desesperada', 'Poesia', 2, 1),
+(13, 'Nuevo Libro JK', 'Prueba', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `Nombre_Usuario` varchar(26) NOT NULL,
+  `Pass_Usuario` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`Nombre_Usuario`, `Pass_Usuario`) VALUES
+('Usuario 2', '1234'),
+('webadmin', '$2y$10$qzWix3SOIb4xL3L.G95ewO.5bmvakZeCV5nu05krjGsnylQfQ/thW');
 
 --
 -- Índices para tablas volcadas
