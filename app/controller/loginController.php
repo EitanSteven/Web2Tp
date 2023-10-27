@@ -26,8 +26,7 @@ class loginController {
 
                 header("Location:" . BASE_URL . 'admin');
             } else {
-                $error = "Usuario Incorrecto";
-                $this->view->renderLogin($error);
+                header("Location:" . BASE_URL . 'ingresar');
             }
         } else {
             echo "Error, ingrese datos de usuario...";
