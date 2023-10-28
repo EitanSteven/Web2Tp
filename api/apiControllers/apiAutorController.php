@@ -16,7 +16,17 @@ class apiAutorController {
     }
 
     public function getAll($params = null) {
-        $autores = $this->model->getAutores();
+        $parametros = [];
+
+        if (isset($_GET['sort'])) {
+            $parametros['sort'] = $_GET['sort'];
+        }
+
+        if (isset($_GET['order'])) {
+            $parametros['order'] = $_GET['order'];
+        }
+
+        $autores = $this->model->getAutores($parametros);
         $this->view->response($autores, 200);
     }
     public function get($params = null) {

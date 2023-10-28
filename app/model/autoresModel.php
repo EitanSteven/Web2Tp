@@ -9,8 +9,19 @@ class autoresModel {
         $this->db = new PDO('mysql:host=' . HOST . ';dbname=' . NAME . ';charset=' . CHARSET . '', '' . USER . '', '' . PASS . '');
     }
 
-    public function getAutores() {
-        $query = $this->db->prepare("SELECT * FROM autores ORDER BY ID_Autor");
+    public function getAutores($parametros = null) {
+        $sql = 'SELECT * FROM autores';
+        if (isset($parametros['order'])) {
+            $sql .= ' ORDER BY '. $parametros['order'];
+            if (isset($parametros['sort'])) {
+                $sql .= ' '. $parametros['sort'];
+            }
+        }
+        //SELECT * FROM autores ORDER BY Nombre_Autor ASC
+        //echo $sql;
+        //die(__FILE__);
+
+        $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
