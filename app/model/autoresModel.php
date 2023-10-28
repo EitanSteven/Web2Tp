@@ -14,6 +14,11 @@ class autoresModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+    public function getAutor($id) {
+        $query = $this->db->prepare("SELECT * FROM autores WHERE ID_Autor = ?");
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
     public function getNombre($id) {
         $query = $this->db->prepare("SELECT Nombre_Autor from autores WHERE ID_Autor = ?");
         $query->execute([$id]);
@@ -29,11 +34,13 @@ class autoresModel {
         $newState = !$originState;
 
         $query = $this->db->prepare("UPDATE autores SET Estado = ? WHERE ID_Autor = ?");
-        $query->execute([$newState, $id]);
+        $result = $query->execute([$newState, $id]);
+        return $result;
     }
     public function deleteAutor($id) {
         $query = $this->db->prepare('DELETE FROM autores WHERE ID_Autor = ?');
         $query->execute([$id]);
+        return $query->rowCount();
     }
     public function getLastId() {
         $autores = $this->getAutores();
@@ -49,6 +56,7 @@ class autoresModel {
         
         $query = $this->db->prepare('INSERT INTO autores (ID_Autor, Nombre_Autor, Nacionalidad, Biografia, Estado) VALUES (?, ?, ?, ?, ?)');
         $query->execute([$indice, $autorName, $autorNacionalidad, $autorBio, $estado]);
+        return $indice;
     }
     
 }
