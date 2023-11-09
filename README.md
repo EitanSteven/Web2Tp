@@ -8,7 +8,7 @@
 
 A continuacion se explicara la funcionalidad de los endpoints de la API de libros y autores, divididos por los 4 verbos en orden: GET, POST, UPDATE, y DELETE.
 
-## Get:
+## GET:
 
 - Web2Tp/api/libros
 - Web2Tp/api/autores
