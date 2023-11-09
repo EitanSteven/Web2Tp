@@ -17,9 +17,6 @@ class autoresModel {
                 $sql .= ' '. $parametros['sort'];
             }
         }
-        //SELECT * FROM autores ORDER BY Nombre_Autor ASC
-        //echo $sql;
-        //die(__FILE__);
 
         $query = $this->db->prepare($sql);
         $query->execute();

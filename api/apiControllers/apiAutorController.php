@@ -1,12 +1,14 @@
 <?php
 require_once "app/model/autoresModel.php";
+require_once "app/model/librosModel.php";
 require_once "api/apiView.php";
 
 class apiAutorController {
-    private $model, $view, $data;
+    private $model, $librosModel ,$view, $data;
 
     function __construct() {
         $this->model = new autoresModel();
+        $this->librosModel = new librosModel();
         $this->view = new apiView();
         $this->data = file_get_contents("php://input");
     }
@@ -41,8 +43,9 @@ class apiAutorController {
     }
     public function delete($params = null) {
         $idAutor = $params[":ID"];
+        $successBook = $this->librosModel->deleteLibroByAutor($idAutor);
         $success = $this->model->deleteAutor($idAutor);
-        if ($success) {
+        if ($success & $successBook) {
         $this->view->response("El Autor con el ID:$idAutor se borro exitosamente", 200);
         } else {
             $this->view->response("El Autor con el ID:$idAutor no existe, no se puede eliminar.", 404);
@@ -59,6 +62,20 @@ class apiAutorController {
         } else {
             $this->view->response("No se pudo cambiar el estado", 500);
         }
+    }
+    public function add($params = null) {
+        $body = $this->getData();
+        $Nombre_Autor = $body->Nombre_Autor;
+        $Nacionalidad = $body->Nacionalidad;
+        $Biografia = $body->Biografia;
+        $Estado = $body->Estado;
 
+        $id = $this->model->addAutor($Nombre_Autor, $Nacionalidad, $Estado, $Biografia);
+
+        if ($id > 0) {
+            $this->view->response("Se agrego el Autor con el id:$id", 200);
+        } else {
+            $this->view->response("No se pudo cambiar el estado", 500);
+        }
     }
 }
